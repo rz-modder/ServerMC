@@ -19,7 +19,8 @@ proot-distro login (ubuntu/debian/...)
 ```
 ### How to setup ServerMC
 ```
-pkg install git -y
+apt update -y
+apt install git -y
 git clone https://github.com/rz-modder/ServerMC
 chmod +x ServerMC/*
 cd ServerMC
