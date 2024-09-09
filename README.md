@@ -14,7 +14,9 @@ pkg update -y && pkg upgrade -y && pkg install proot-distro -y
 ```
 proot-distro install (ubuntu/debian)
 ```
-
+```
+proot-distro login (ubuntu/debian/...)
+```
 ### How to setup ServerMC
 ```
 pkg install git -y
