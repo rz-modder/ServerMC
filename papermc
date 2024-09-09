@@ -1,0 +1,46 @@
+#!/bin/sh
+LOG="[$(date)]"
+clear
+echo "***************************************"
+echo "Author: rz-modder"
+echo "Youtube: RamZxx."
+echo "Github: https://github.com/rz-modder/"
+echo "***************************************"
+echo
+sleep 3
+if [ ! -f "papermc/papermc.jar" ]; then
+    read -p "input papermc filepath: " papermc_path
+    if [ ! -f "$papermc_path" ]; then
+        echo $LOG "unknown path!"
+        echo
+        exit 1
+    fi
+    if [ -f "$papermc_path" ]; then
+        if [ ! -d "papermc" ]; then
+            mkdir papermc
+        fi
+        if [ -f "papermc/papermc.jar" ]; then
+            rm -rf papermc/papermc.jar
+        fi
+        cp $papermc_path papermc/papermc.jar
+    fi
+fi
+if [ -f "papermc/papermc.jar" ]; then
+    if [ ! -f "papermc/eula.txt" ]; then
+        sh .papermc_info
+	java -jar papermc/papermc.jar
+    fi
+    if [ -f "papermc/eula.txt" ]; then
+        . papermc/eula.txt
+        if [ $eula = "false" ]; then
+            echo
+            echo $LOG " accept eula before continue!"
+            echo
+            exit 1
+        fi
+        if [ $eula = "true" ]; then
+            sh .papermc_info
+            java -jar papermc/papermc.jar
+        fi
+    fi
+fi

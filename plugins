@@ -1,0 +1,15 @@
+#!/bin/sh
+echo
+read -p "input plugins path: " plugin_path
+echo
+if [ ! -f "$plugin_path" ]; then
+    echo "unknown path!"
+    echo
+    exit 1
+fi
+if [ -f "$plugin_path" ]; then
+    cp $plugin_path papermc/plugins/
+    echo "done....!"
+    echo
+    exit 0
+fi
