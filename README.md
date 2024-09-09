@@ -2,7 +2,7 @@
 Jalankan server minecraft di android tanpa pc.
 
 ### Requirements
-- Termux (Download from [f-droid](https://f-droid.com/))
+- Termux (Download from [f-droid](https://f-droid.org/))
 - Install Linux on Termux (You can using proot-distro)
 
 ### How to setup linux
